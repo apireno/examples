@@ -110,8 +110,8 @@ def setup_wiki():
 
 
 def incriment_latest_edgar_graph():
-    download_edgar(5)
-    add_vectors_to_edgar(5)
+    download_edgar(35)
+    add_vectors_to_edgar(35)
     edgar_graph_extraction()
     insert_edgar_graph(il=True,delta_days=5)
 
@@ -141,9 +141,9 @@ def insert_edgar_graph(il=False,delta_days=30):
 
 
 def incriment_latest_edgar():
-    download_edgar(5)
-    add_vectors_to_edgar(2)
-    insert_edgar()
+    download_edgar(35)
+    add_vectors_to_edgar(35)
+    insert_edgar(il=True)
 
 def setup_edgar():
     create_database()
@@ -204,7 +204,7 @@ def add_vectors_to_edgar(delta_days=30):
 
 
 # python ./src/surrealdb_rag/insert_edgar.py -fsv "EDGAR Data" -ems GLOVE,FASTTEXT
-def insert_edgar(il=False): # Alias definition IN this file
+def insert_edgar(il=True): # Alias definition IN this file
     """Runs the embedding model insertion for EDGAR data."""
     command = [
         "python",
